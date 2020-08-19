@@ -1,0 +1,44 @@
+* {
+	transition: all 0.2s;
+}
+.calc-block {
+	border: 2px grey solid;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+span {
+	vertical-align: middle;
+}
+.form-group {
+	margin: 0;
+}
+
+.form-group label {
+	color: #000000;
+}
+
+.form-control {
+	text-align: center;
+	display: inline-block;
+	width: 40px;
+}
+.price-btn {
+	display: block;
+	margin: 1rem auto;
+}
+.calc-img img {
+	width: 100%;
+	max-width: 500px;
+}
+.floor-number {
+	margin-left: 5px;
+}
+
+.error {
+	margin-top: 0;
+	padding-top: 0;
+	display: none;
+	color: red;
+	font-weight: bold;
+	font-size: 12px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 17</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/material-kit.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h3>Калькулятор расчета стоимости</h3>
+    <small>Для сайта по строительству домов и дач</small>
+    <hr>
+    <div class="row">
+        <div class="col-xs-6">
+            <form class="calc-block" action="#">
+                <h4>Выберите для расчета:</h4>
+                <hr>
+                <div class="form-group">
+                    <label>Количество квадратных метров:
+                    <input type="text" data-toggle="tooltip" data-placement="top" value="20" placeholder="46" class="form-control m-count" name="meters"/></label>
+                    <span class="error">Не менее 20 метров!</span>
+                </div>
+                <div class="form-group">
+                    <label>Количество этажей в доме:
+                    <select name="floor-number" class="form-control floor-number">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select></label>
+                </div>
+                <span>Какой материал?</span>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="wood" checked name="material">
+                        Дерево
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="bricks" name="material">
+                        Кирпич
+                    </label>
+                </div>
+                <br>
+                <div class="togglebutton form-group">
+                    <label><input id="project" type="checkbox" value="0">Нужен дизайн проект</label>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary price-btn">Заказать</button>
+            </form>
+        </div>
+        <div class="col-xs-6">
+            <div class="calc-img">
+                <img src="img/wood_1.jpg" alt="">
+            </div>
+            <h3 class="col-xs-offset-4">Итоговая стоимость:</h3>
+            <h3 class="col-xs-offset-4"><span id="price">500 000</span> <small>рублей</small></h3>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="js/jquery-mask-as-number.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/material-kit.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
