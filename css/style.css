@@ -42,3 +42,8 @@ span {
 	font-weight: bold;
 	font-size: 12px;
 }
+
+.result {
+	display: none;
+	margin: 1rem auto;
+}

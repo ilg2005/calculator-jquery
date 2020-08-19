@@ -8,8 +8,9 @@ $(function () {
         imgElement = $('img'),
         priceElement = $('#price'),
         errorElement = $('.error'),
-        formElement = $('form'),
-        formData = {a: 1, b:2},
+        formElement = $('#ajax_form'),
+        submitBtnElement = $('button[type=submit]'),
+        resultElement = $('.result'),
         basePrice = 500000,
         projectPrice = 50000,
         baseMCount = 20,
@@ -74,12 +75,27 @@ $(function () {
 
     formElement.on('submit', function (evt) {
         evt.preventDefault();
+        var formData = new FormData(formElement[0]);
         $.ajax({
             type: 'POST',
+            enctype: 'multipart/form-data',
             url: 'https://phpmaster.pw/test.php',
             data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
             success: function (data) {
+                submitBtnElement.hide();
+                resultElement.css('display', 'block')
+                    .addClass('btn-success');
                 console.log(data);
+            },
+            error: function (e) {
+                submitBtnElement.hide();
+                resultElement.css('display', 'block')
+                    .text('Произошла ошибка! Повторите запрос позже.')
+                    .addClass('btn-danger');
+                console.log("ERROR : ", e);
             }
         })
     })

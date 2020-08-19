@@ -16,7 +16,7 @@
     <hr>
     <div class="row">
         <div class="col-xs-6">
-            <form class="calc-block" action="#">
+            <form id="ajax_form" class="calc-block" action="">
                 <h4>Выберите для расчета:</h4>
                 <hr>
                 <div class="form-group">
@@ -47,10 +47,11 @@
                 </div>
                 <br>
                 <div class="togglebutton form-group">
-                    <label><input id="project" type="checkbox" value="0">Нужен дизайн проект</label>
+                    <label><input id="project" name="project" type="checkbox" value="0">Нужен дизайн проект</label>
                 </div>
                 <hr>
                 <button type="submit" class="btn btn-primary price-btn">Заказать</button>
+                <button class="btn result">Запрос успешно отправлен!</button>
             </form>
         </div>
         <div class="col-xs-6">
