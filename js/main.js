@@ -85,13 +85,13 @@ $(function () {
             contentType: false,
             cache: false,
             success: function (data) {
-                submitBtnElement.hide();
+                submitBtnElement.remove();
                 resultElement.css('display', 'block')
                     .addClass('btn-success');
                 console.log(data);
             },
             error: function (e) {
-                submitBtnElement.hide();
+                submitBtnElement.remove();
                 resultElement.css('display', 'block')
                     .text('Произошла ошибка! Повторите запрос позже.')
                     .addClass('btn-danger');
