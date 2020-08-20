@@ -11,7 +11,7 @@ $(function () {
         formElement = $('#ajax_form'),
         submitBtnElement = $('button[type=submit]'),
         resultElement = $('.result'),
-        basePrice = 500000,
+        basePrice = 2000000,
         projectPrice = 50000,
         baseMCount = 20,
         woodCoefficient = 1,
