@@ -47,3 +47,16 @@ span {
 	display: none;
 	margin: 1rem auto;
 }
+
+#dialog-message {
+	display: none;
+}
+
+#dialog-message p {
+	margin-top: 20px;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+	display: none;
+}
+
