@@ -43,6 +43,32 @@ $(function () {
         return new Intl.NumberFormat('ru-RU').format(newPrice);
     }
 
+    function sendAjax() {
+        var formData = new FormData(formElement[0]);
+        $.ajax({
+            type: 'POST',
+            enctype: 'multipart/form-data',
+            url: 'https://phpmaster.pw/test.php',
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                submitBtnElement.remove();
+                resultElement.css('display', 'block')
+                    .addClass('btn-success');
+                console.log(data);
+            },
+            error: function (e) {
+                submitBtnElement.remove();
+                resultElement.css('display', 'block')
+                    .text('Произошла ошибка! Повторите запрос позже.')
+                    .addClass('btn-danger');
+                console.log("ERROR : ", e);
+            }
+        })
+    }
+
     mCountElement.maskAsNumber().on('keyup', function () {
         if (+mCountElement.val() >= baseMCount) {
             errorElement.hide();
@@ -76,37 +102,15 @@ $(function () {
     formElement.on('submit', function (evt) {
         evt.preventDefault();
         $("#dialog-message").dialog({
-            resizable:false,
-            modal:true,
-            buttons:{
+            resizable: false,
+            modal: true,
+            buttons: {
                 "Отправить": function () {
-                    var formData = new FormData(formElement[0]);
-                    $.ajax({
-                        type: 'POST',
-                        enctype: 'multipart/form-data',
-                        url: 'https://phpmaster.pw/test.php',
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (data) {
-                            submitBtnElement.remove();
-                            resultElement.css('display', 'block')
-                                .addClass('btn-success');
-                            console.log(data);
-                        },
-                        error: function (e) {
-                            submitBtnElement.remove();
-                            resultElement.css('display', 'block')
-                                .text('Произошла ошибка! Повторите запрос позже.')
-                                .addClass('btn-danger');
-                            console.log("ERROR : ", e);
-                        }
-                    })
-                    $(this).dialog( "close",  );
+                    sendAjax();
+                    $(this).dialog("close",);
                 },
-                "Отмена": function(){
-                    $(this).dialog( "close" );
+                "Отмена": function () {
+                    $(this).dialog("close");
                 }
             }
         });
