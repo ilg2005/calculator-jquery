@@ -10,7 +10,7 @@ $(function () {
         errorElement = $('.error'),
         formElement = $('#ajax_form'),
         submitBtnElement = $('button[type=submit]'),
-        resultElement = $('.result'),
+        alertElement = $('.alert'),
         basePrice = 2000000,
         projectPrice = 50000,
         baseMCount = 20,
@@ -55,15 +55,15 @@ $(function () {
             cache: false,
             success: function (data) {
                 submitBtnElement.remove();
-                resultElement.css('display', 'block')
-                    .addClass('btn-success');
+                alertElement.css('display', 'block')
+                    .addClass('alert-success');
                 console.log(data);
             },
             error: function (e) {
                 submitBtnElement.remove();
-                resultElement.css('display', 'block')
+                alertElement.css('display', 'block')
                     .text('Произошла ошибка! Повторите запрос позже.')
-                    .addClass('btn-danger');
+                    .addClass('alert-danger');
                 console.log("ERROR : ", e);
             }
         })
@@ -106,6 +106,7 @@ $(function () {
             modal: true,
             buttons: {
                 "Отправить": function () {
+                    submitBtnElement.text('Отправка...');
                     sendAjax();
                     $(this).dialog("close",);
                 },

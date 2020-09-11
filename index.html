@@ -6,76 +6,107 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/material-kit.css">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+          rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div class="container">
-    <h3>Калькулятор расчета стоимости</h3>
-    <small>Для сайта по строительству домов и дач</small>
-    <hr>
     <div class="row">
-        <div class="col-xs-6">
-            <form id="ajax_form" class="calc-block" action="">
-                <h4>Выберите для расчета:</h4>
-                <hr>
-                <div class="form-group">
-                    <label>Количество квадратных метров:
-                    <input type="text" data-toggle="tooltip" data-placement="top" value="20" placeholder="46" class="form-control m-count" name="meters"/></label>
-                    <span class="error">Не менее 20 метров!</span>
-                </div>
-                <div class="form-group">
-                    <label>Количество этажей в доме:
-                    <select name="floor-number" class="form-control floor-number">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select></label>
-                </div>
-                <span>Какой материал?</span>
-                <div class="radio">
-                    <label>
-                        <input type="radio" value="wood" checked name="material">
-                        Дерево
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" value="bricks" name="material">
-                        Кирпич
-                    </label>
-                </div>
-                <br>
-                <div class="togglebutton form-group">
-                    <label><input id="project" name="project" type="checkbox" value="0">Нужен дизайн проект</label>
-                </div>
-                <hr>
-                <button type="submit" class="btn btn-primary price-btn">Заказать</button>
-                <div class="btn result">Запрос успешно отправлен!</div>
-            </form>
+        <div class="col-md-12 text-center">
+            <h3>Калькулятор расчета стоимости</h3>
+            <small>Для сайта по строительству домов и дач</small>
+            <hr>
         </div>
-        <div class="col-xs-6">
-            <div class="calc-img">
-                <img src="img/wood_1.jpg" alt="">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Выберите для расчета:</h3>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <form id="ajax_form" action="">
+                        <div class="form-group row">
+                            <label for="meters" class="col-sm-6 col-form-label">Количество квадратных метров:</label>
+                            <div class="col-sm-2">
+                                <input id="meters" type="text" data-toggle="tooltip" data-placement="top" value="20"
+                                       placeholder="46" class="form-control m-count" name="meters">
+                            </div>
+                            <div class="col-sm-4 error">Не менее 20 метров!</div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="floors" class="col-sm-6 col-form-label">Количество этажей в доме:</label>
+                            <div class="col-sm-2">
+                                <select id="floors" name="floor-number" class="form-control floor-number">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><p>Какой материал?</p></label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="material" id="wood" value="wood"
+                                       checked>
+                                <label class="form-check-label text-muted" for="wood">Дерево</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="material" id="bricks" value="bricks">
+                                <label class="form-check-label text-muted" for="bricks">Кирпич</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <label class="col-form-label">Нужен дизайн проект?</label>
+                            </p>
+                            <input id="project" type="checkbox" name="project"  data-toggle="toggle"
+                                   data-onstyle="success" data-offstyle="danger" data-on="Да" data-off="Нет"
+                                   data-size="sm" value="0">
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                        <button type="submit" class="btn btn-primary price-btn btn-lg" data-toggle="modal" data-target="#confirmModal">Заказать</button>
+                        </div>
+                        <div class="alert text-center" role="alert">
+                            <strong>Запрос успешно отправлен!</strong>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <h3 class="col-xs-offset-4">Итоговая стоимость:</h3>
-            <h3 class="col-xs-offset-4"><span id="price">2 000 000</span> <small>рублей</small></h3>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <img src="img/wood_1.jpg" class="img-fluid col-xs-12" alt="">
+
+            <div class="h3 text-center">Итоговая стоимость:</div>
+            <div class="h3 text-center"><span id="price">2 000 000</span> <small>рублей</small></div>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
 <div id="dialog-message" title="Отправить заказ">
     <p>
-        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        <span class="ui-icon ui-icon-alert"></span>
         После отправки формы расчета с Вами свяжется наш менеджер.
     </p>
 </div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script><script src="js/jquery-mask-as-number.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="js/jquery-mask-as-number.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/material.min.js"></script>
-<script src="js/material-kit.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <script src="js/main.js"></script>
 
 

@@ -1,51 +1,23 @@
 * {
 	transition: all 0.2s;
 }
-.calc-block {
-	border: 2px grey solid;
-	padding: 10px;
-	margin-bottom: 40px;
-}
-span {
-	vertical-align: middle;
-}
-.form-group {
-	margin: 0;
+
+.card {
+	border: 1px solid black;
+	padding: 20px;
 }
 
-.form-group label {
-	color: #000000;
+form .alert {
+	display: none;
 }
 
-.form-control {
-	text-align: center;
-	display: inline-block;
-	width: 40px;
-}
-.price-btn {
-	display: block;
-	margin: 1rem auto;
-}
-.calc-img img {
-	width: 100%;
-	max-width: 500px;
-}
-.floor-number {
-	margin-left: 5px;
-}
-
-.error {
-	margin-top: 0;
+form .error {
+	margin-top: 5px;
 	padding-top: 0;
 	display: none;
 	color: red;
 	font-weight: bold;
 	font-size: 12px;
-}
-
-.result {
-	display: none;
-	margin: 1rem auto;
 }
 
 #dialog-message {
@@ -54,6 +26,11 @@ span {
 
 #dialog-message p {
 	margin-top: 20px;
+}
+
+.ui-icon {
+	float:left;
+	margin:0 7px 20px 0;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
