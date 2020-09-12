@@ -1,39 +1,44 @@
 * {
-	transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 .card {
-	border: 1px solid black;
-	padding: 20px;
+    border: 1px solid black;
+    padding: 20px;
 }
 
 form .alert {
-	display: none;
+    display: none;
 }
 
 form .error {
-	margin-top: 5px;
-	padding-top: 0;
-	display: none;
-	color: red;
-	font-weight: bold;
-	font-size: 12px;
+    margin-top: 5px;
+    padding-top: 0;
+    display: none;
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 #dialog-message {
-	display: none;
+    display: none;
 }
 
 #dialog-message p {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .ui-icon {
-	float:left;
-	margin:0 7px 20px 0;
+    float: left;
+    margin: 0 7px 20px 0;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
-	display: none;
+    display: none;
 }
 
+@media (max-width: 992px) {
+    .mb-resp {
+        margin-bottom: 3rem;
+    }
+}
